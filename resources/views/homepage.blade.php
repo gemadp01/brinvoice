@@ -23,8 +23,12 @@
                 <h1 class="font-semibold text-3xl text-gray-800 dark:text-gray-200 leading-tight">Brinvoice.</h1>
 
                 <div class="hidden sm:block sm:space-x-3 sm:mr-4">
-                    <x-secondary-button>Login</x-secondary-button>
-                    <x-primary-button>Daftar</x-primary-button>
+                    <x-secondary-button>
+                        <a href="{{ route('login') }}">Login</a>
+                    </x-secondary-button>
+                    <x-primary-button>
+                        <a href="{{ route('register') }}">Daftar</a>
+                    </x-primary-button>
                 </div>
                 <!-- Settings Dropdown -->
                 @if(auth()->user())
