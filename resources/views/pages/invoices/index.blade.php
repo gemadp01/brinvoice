@@ -62,7 +62,7 @@
                                             Detail / Ubah
                                         </a>
                                         |
-                                        <a href="{{ route('invoices.pdf', $invoice->invoice_code) }}" class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-indigo-600 hover:text-indigo-800 focus:outline-hidden focus:text-indigo-800 disabled:opacity-50 disabled:pointer-events-none dark:text-indigo-500 dark:hover:text-indigo-400 dark:focus:text-indigo-400 ms-2">
+                                        <a target="_blank" href="{{ route('invoices.pdf', $invoice->invoice_code) }}" class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-indigo-600 hover:text-indigo-800 focus:outline-hidden focus:text-indigo-800 disabled:opacity-50 disabled:pointer-events-none dark:text-indigo-500 dark:hover:text-indigo-400 dark:focus:text-indigo-400 ms-2">
                                             Lihat PDF
                                         </a>
                                     </td>

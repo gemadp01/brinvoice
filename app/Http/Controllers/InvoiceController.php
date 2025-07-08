@@ -9,6 +9,7 @@ use App\Models\InvoiceFormat;
 use App\Models\Item;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Spatie\LaravelPdf\Facades\Pdf;
 
 class InvoiceController extends Controller
 {
@@ -178,6 +179,6 @@ class InvoiceController extends Controller
 
     public function pdf(Invoice $invoice)
     {
-        // return Pdf::view('invoices.pdf', ['invoice' => $invoice->load('user', 'invoice_setting', 'items')])->format('a4')->inline($invoice_code->invoice_code . '.pdf');
+        return Pdf::view('pages.invoices.pdf', ['invoice' => $invoice->load('user', 'invoice_formats', 'items')])->format('a4')->inline($invoice->invoice_code . '.pdf');
     }
 }

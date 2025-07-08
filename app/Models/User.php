@@ -60,6 +60,6 @@ class User extends Authenticatable
 
     public function invoices(): HasMany
     {
-        return $this->hasMany(InvoiceFormat::class);
+        return $this->hasMany(Invoice::class);
     }
 }

@@ -31,7 +31,7 @@ class Invoice extends Model
 
     public function invoice_formats() : BelongsTo
     {
-        return $this->belongsTo(InvoiceFormat::class);
+        return $this->belongsTo(InvoiceFormat::class, 'invoice_format_id');
     }
 
     public function items() : HasMany

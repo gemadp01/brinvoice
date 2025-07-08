@@ -25,7 +25,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('/formats', InvoiceFormatController::class)->except(['show']);
     Route::resource('/invoices', InvoiceController::class)->except(['show']);
-    Route::get('/invoices/pdf/{invoice_code}', [InvoiceController::class, 'pdf'])->name('invoices.pdf');
 });
+Route::get('/invoices/pdf/{invoice}', [InvoiceController::class, 'pdf'])->name('invoices.pdf');
 
 require __DIR__.'/auth.php';
