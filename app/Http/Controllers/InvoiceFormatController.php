@@ -76,28 +76,7 @@ class InvoiceFormatController extends Controller
             abort(403, 'Unauthorized action.');
         }
 
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'sender_title' => 'required|string|max:255',
-            'sender_label' => 'required|string|max:255',
-            'receiver_title' => 'required|string|max:255',
-            'receiver_label' => 'required|string|max:255',
-            'invoice_date_label' => 'required|string|max:255',
-            'invoice_address_label' => 'required|string|max:255',
-            'item_label' => 'required|string|max:255',
-            'quantity_label' => 'required|string|max:255',
-            'price_label' => 'required|string|max:255',
-            'price_total_label' => 'required|string|max:255',
-            'subtotal_label' => 'required|string|max:255',
-            'discount_label' => 'nullable|string|max:255',
-            'shipment_label' => 'nullable|string|max:255',
-            'tax_label' => 'nullable|string|max:255',
-            'service_label' => 'nullable|string|max:255',
-            'bill_total_label' => 'required|string|max:255',
-            'payment_method_label' => 'required|string|max:255',
-            'payment_method_name' => 'required|string|max:255',
-            'payment_method_number' => 'required|string|max:255',
-        ]);
+        $validated = $request->validated();
 
         $slug = str($validated['name'])->slug();
         $nomor = 1;

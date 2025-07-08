@@ -11,7 +11,8 @@
                 <h2 class="text-lg font-medium text-black dark:text-white mb-4">
                     {{ __('Buat Invoice Baru') }}
                 </h2>
-                <form action="{{ route('invoices.create') }}" method="GET">
+
+                <form action="{{ route('invoices.create' ) }}" method="GET">
                     <label for="invoice_format" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Pilih Format Invoice</label>
                     <div class="flex w-full">
 

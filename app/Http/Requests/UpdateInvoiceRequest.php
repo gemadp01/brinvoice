@@ -11,7 +11,7 @@ class UpdateInvoiceRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,33 @@ class UpdateInvoiceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'receiver' => 'required|string|max:255',
+            'receiver_email' => 'required|email|max:255',
+            'invoice_date' => 'required|date',
+            'invoice_address' => 'required',
+            'name'  => 'required|array',
+            'name.*' => 'required|max:255',
+            'quantity' => 'required|array',
+            'quantity.*' => 'required|numeric|integer|min:1',
+            'price' => 'required|array',
+            'price.*' => 'required|numeric|integer|min:0',
+            'discount' => 'sometimes|nullable|numeric|integer|min:0',
+            'shipment' => 'sometimes|nullable|numeric|integer|min:0',
+            'tax' => 'sometimes|nullable|numeric|integer|min:0',
+            'service' => 'sometimes|nullable|numeric|integer|min:0',
         ];
+    }
+
+    protected function prepareForValidation()
+    {
+        $names = array_filter($this->input('name', []), fn($val) => $val !== null && $val !== '');
+        $quantities = array_filter($this->input('quantity', []), fn($val) => $val !== null && $val !== '');
+        $prices = array_filter($this->input('price', []), fn($val) => $val !== null && $val !== '');
+
+        $this->merge([
+            'name' => array_map('trim', array_values($names)), // reset index + trim
+            'quantity' => array_values($quantities), // reset index
+            'price' => array_values($prices), // reset index
+        ]);
     }
 }

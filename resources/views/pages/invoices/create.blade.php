@@ -7,8 +7,9 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <form method="post" action="{{ route('invoices.store', $format->slug) }}" class="space-y-6 w-full">
+            <form method="post" action="{{ route('invoices.store') }}" class="space-y-6 w-full">
                 @csrf
+                <input type="hidden" name="invoice_format" value="{{ $format->slug }}" />
                 <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow-sm sm:rounded-lg">
 
                     {{-- tanggal cetak --}}
@@ -101,19 +102,19 @@
                     <div id="item-list">
                         <div class="item-row grid grid-cols-12 gap-4 py-2 border-b border-gray-200 dark:border-gray-700" id="item-template">
                             <div class="col-span-5">
-                                <x-text-input id="name" name="name[]" type="text" class="py-1 w-full" :value="old('name', '-')" required autofocus autocomplete="name" placeholder="Isi nama {{ strtolower($format->item_label) }}"/>
+                                <x-text-input id="name" name="name[]" type="text" class="py-1 w-full" :value="old('name', '')" required autofocus autocomplete="name" placeholder="Isi nama {{ strtolower($format->item_label) }}"/>
                                 <x-input-error class="mt-2" :messages="$errors->get('name')" />
                             </div>
                             <div class="col-span-2">
-                                <x-text-input name="quantity[]" type="number" class="py-1 w-full quantity" :value="old('quantity', 1)" required autofocus autocomplete="quantity" placeholder="Isi {{ strtolower($format->quantity_label) }}"/>
+                                <x-text-input name="quantity[]" type="number" class="py-1 w-full quantity" :value="old('quantity')" required autofocus autocomplete="quantity" placeholder="Isi {{ strtolower($format->quantity_label) }}"/>
                                 <x-input-error class="mt-2" :messages="$errors->get('quantity')" />
                             </div>
                             <div class="col-span-2">
-                                <x-text-input-prefix prefix="Rp" name="price[]" type="number" class="py-1 w-full price" :value="old('price', 1000)" required placeholder="Isi {{ strtolower($format->price_label) }}" autofocus autocomplete="price"/>
+                                <x-text-input-prefix prefix="Rp" name="price[]" type="number" class="py-1 w-full price" :value="old('price')" required placeholder="Isi {{ strtolower($format->price_label) }}" autofocus autocomplete="price"/>
                                 <x-input-error class="mt-2" :messages="$errors->get('price')" />
                             </div>
                             <div class="col-span-2">
-                                <x-text-input-prefix prefix="Rp" type="text" class="py-1 w-full item_price_total" :value="1000" autofocus disabled/>
+                                <x-text-input-prefix prefix="Rp" type="text" class="py-1 w-full item_price_total" :value="0" autofocus disabled/>
                             </div>
                             <div class="col-span-1 flex justify-end">
                                 <button type="button" class="remove-item-btn text-red-500 hover:text-red-700 dark:hover:text-red-400 p-2">

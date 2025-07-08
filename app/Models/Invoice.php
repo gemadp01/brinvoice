@@ -29,7 +29,7 @@ class Invoice extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function invoice_setting() : BelongsTo
+    public function invoice_formats() : BelongsTo
     {
         return $this->belongsTo(InvoiceFormat::class);
     }

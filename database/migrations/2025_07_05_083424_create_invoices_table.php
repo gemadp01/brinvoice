@@ -25,7 +25,7 @@ return new class extends Migration
             $table->integer('shipment')->default(0);
             $table->integer('tax')->default(0);
             $table->integer('service')->default(0);
-            $table->integer('bil_total');
+            $table->integer('bill_total');
             $table->timestamps();
         });
     }
