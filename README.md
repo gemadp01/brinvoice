@@ -13,7 +13,7 @@ A web app anyone can use to make invoices.
 
 ## Screenshots
 
-![Brinvoice](https://drive.google.com/file/d/1fO5XdOiOGrmvZXOcvbQVcTtA1PS6rVTB/view?usp=sharing)
+![Brinvoice](./public/assets/brinvoice-homepage.png)
 
 
 ## Built with
