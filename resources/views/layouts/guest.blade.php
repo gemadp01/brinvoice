@@ -17,9 +17,10 @@
     <body class="font-sans text-gray-900 antialiased">
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
             <div>
-                <a href="/">
+                <a href="/" class="flex items-center">
                     {{-- <x-application-logo class="w-20 h-20 fill-current text-gray-500" /> --}}
-                    <h1 class="font-semibold text-3xl text-gray-800 dark:text-gray-200 leading-tight">Brinvoice.</h1>
+                    <img src="{{ asset('storage/main-logo/brinvoice.png') }}" class="w-12" alt="">
+                    <h1 class="font-semibold text-2xl text-gray-800 dark:text-gray-200 leading-tight">Brinvoice.</h1>
                 </a>
             </div>
 

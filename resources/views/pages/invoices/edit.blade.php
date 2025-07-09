@@ -19,7 +19,7 @@
 
                     {{-- tanggal cetak --}}
                     <div class="flex justify-end text-black dark:text-white mb-6">
-                        <p class="text-xs text-end italic">Tanggal Cetak : {{ now()->translatedFormat('d/m/Y, H.i') }}</p>
+                        <p class="text-xs text-end italic">Tanggal Cetak : {{ now()->translatedFormat('d/m/Y, H.i') }} GMT+7</p>
                     </div>
 
                     {{-- header logo & invoice code --}}
@@ -270,10 +270,10 @@
                                 {{ __('Pastikan data sudah benar dan terbarui sebelum mengirimkan invoice ke email') }}
                             </p>
                         </header>
-                        {{-- <form action="{{ route('invoices.send', $invoice->invoice_code) }}" method="POST">
+                        <form action="{{ route('invoices.send', $invoice->invoice_code) }}" method="POST">
                             @csrf
                             <button type="submit" class="inline-flex items-center px-4 py-2 bg-indigo-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-indigo-600  focus:bg-indigo-600 active:bg-indigo-700   focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">Kirim Email ke {{ $invoice->receiver }}</button>
-                        </form> --}}
+                        </form>
                     </section>
                 </div>
             </div>

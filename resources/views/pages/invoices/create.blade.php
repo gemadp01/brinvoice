@@ -14,7 +14,7 @@
 
                     {{-- tanggal cetak --}}
                     <div class="flex justify-end text-black dark:text-white mb-6">
-                        <p class="text-xs text-end italic">Tanggal Cetak : {{ now()->translatedFormat('d/m/Y, H.i') }}</p>
+                        <p class="text-xs text-end italic">Tanggal Cetak : {{ now()->translatedFormat('d/m/Y, H.i') }} GMT+7</p>
                     </div>
 
                     {{-- header logo & invoice code --}}

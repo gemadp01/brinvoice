@@ -25,6 +25,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('/formats', InvoiceFormatController::class)->except(['show']);
     Route::resource('/invoices', InvoiceController::class)->except(['show']);
+    Route::post('/invoices/{invoice}/send', [InvoiceController::class, 'sendEmail'])->name('invoices.send');
 });
 Route::get('/invoices/pdf/{invoice}', [InvoiceController::class, 'pdf'])->name('invoices.pdf');
 

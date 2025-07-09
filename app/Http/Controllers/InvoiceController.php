@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\InvoiceSend;
 use App\Models\Invoice;
 use App\Http\Requests\StoreInvoiceRequest;
 use App\Http\Requests\UpdateInvoiceRequest;
@@ -9,6 +10,7 @@ use App\Models\InvoiceFormat;
 use App\Models\Item;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Spatie\LaravelPdf\Facades\Pdf;
 
 class InvoiceController extends Controller
@@ -180,5 +182,17 @@ class InvoiceController extends Controller
     public function pdf(Invoice $invoice)
     {
         return Pdf::view('pages.invoices.pdf', ['invoice' => $invoice->load('user', 'invoice_formats', 'items')])->format('a4')->inline($invoice->invoice_code . '.pdf');
+    }
+
+    public function sendEmail(Invoice $invoice)
+    {
+        $invoice->load('user', 'items', 'invoice_formats');
+        $clientEmail = $invoice->receiver_email;
+        try {
+            Mail::to($clientEmail)->send(new InvoiceSend($invoice));
+            return back()->with('status', 'Email invoice berhasil dikirim ke ' . $clientEmail);
+        } catch (\Exception $e) {
+            return back()->with('status', 'Gagal mengirim email: ' . $e->getMessage());
+        }
     }
 }

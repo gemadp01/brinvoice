@@ -5,9 +5,10 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ route('dashboard') }}" class="flex items-center">
                         {{-- <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" /> --}}
-                        <h1 class="font-semibold text-2xl text-gray-800 dark:text-gray-200 leading-tight">Brinvoice.</h1>
+                        <img src="{{ asset('storage/main-logo/brinvoice.png') }}" class="w-8" alt="">
+                        <h1 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Brinvoice.</h1>
                     </a>
                 </div>
 

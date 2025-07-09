@@ -20,7 +20,10 @@
         <nav x-data="{ open: false }" class="max-w-5xl mx-auto h-full flex justify-between items-center">
 
             <div class="w-full flex justify-between items-center ms-6">
-                <h1 class="font-semibold text-3xl text-gray-800 dark:text-gray-200 leading-tight">Brinvoice.</h1>
+                <a href="{{ route('dashboard') }}" class="flex items-center">
+                    <img src="{{ asset('storage/main-logo/brinvoice.png') }}" class="w-12" alt="">
+                    <h1 class="font-semibold text-2xl text-gray-800 dark:text-gray-200 leading-tight">Brinvoice.</h1>
+                </a>
 
                 <div class="hidden sm:block sm:space-x-3 sm:mr-4">
                     <x-secondary-button>

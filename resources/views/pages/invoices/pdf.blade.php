@@ -20,7 +20,7 @@
             <div class="p-24 bg-white">
                 {{-- tanggal cetak --}}
                 <div class="flex justify-end text-black mb-6">
-                    <p class="text-xs text-end italic">Tanggal Cetak : {{ now()->translatedFormat('d/m/Y, H.i') }}</p>
+                    <p class="text-xs text-end italic">Tanggal Cetak : {{ now()->translatedFormat('d/m/Y, H.i') }} GMT+7</p>
                 </div>
 
                 {{-- header logo & invoice code --}}
@@ -167,9 +167,9 @@
                         {{-- subtotal --}}
                         <div class="grid grid-cols-10 gap-4 items-center py-2 border-b border-gray-200">
                             <div class="col-span-6">
-                                <p class="text-base font-semibold text-black">{{ $invoice->invoice_formats->bil_total_label }}</p>
+                                <p class="text-base font-semibold text-black">{{ $invoice->invoice_formats->bill_total_label }}</p>
                             </div>
-                            <div class="col-span-4 font-semibold text-end">Rp{{ number_format($invoice->bil_total, 0, ',', '.') }}</div>
+                            <div class="col-span-4 font-semibold text-end">Rp{{ number_format($invoice->bill_total, 0, ',', '.') }}</div>
                         </div>
 
                     </div>
